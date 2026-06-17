@@ -32,7 +32,7 @@ If your **only** need is a private mesh between your devices and you have no pre
 ### ZeroTier
 - **Custom protocol** built on UDP with its own cryptography (Curve25519 + Salsa20 + Poly1305).
 - **Layer-2 capable** — can bridge Ethernet frames, useful for legacy apps that expect a flat LAN (e.g. broadcast / multicast discovery, AppleTalk-era protocols, some IoT).
-- **Earth's largest virtual network** (per ZeroTier's marketing) — joined networks share metadata through ZeroTier's root servers.
+- **Globally distributed root server network** — joined networks share metadata through ZeroTier's root servers.
 - **Open-source controller** — you can self-host the entire control plane if you don't want to use ZeroTier's hosted dashboard.
 
 ### HostAnywhere
@@ -45,8 +45,8 @@ If your **only** need is a private mesh between your devices and you have no pre
 
 - **Layer-2 (Ethernet) virtual networks** — Useful when you need broadcast/multicast across the mesh, or when you're running legacy protocols that don't speak IP routing.
 - **Self-hosted controller** — Run the entire control plane on your own hardware with no dependency on ZeroTier's servers.
-- **Flow rules language** — A domain-specific language for traffic policies. More powerful (and more complex) than HostAnywhere's UI-driven rules.
-- **Maturity** — ZeroTier has been around since 2015, with deep integrations and many community resources.
+- **Flow rules language** — A domain-specific language (DSL) for traffic policies. More expressive than HostAnywhere's UI-driven rule editor, with a corresponding learning curve.
+- **Time on market** — ZeroTier has been around since 2015, with more community resources and integrations than HostAnywhere has yet accumulated.
 - **Bridge ZeroTier networks to physical LANs** — A device can bridge frames between a ZeroTier network and a real Ethernet segment, which has no direct HostAnywhere equivalent (HostAnywhere's VPN Gateway is Layer-3 routing, not Layer-2 bridging).
 
 ## What HostAnywhere does that ZeroTier doesn't
@@ -69,12 +69,12 @@ This is a real philosophical difference worth noting.
 - Widely deployed in enterprise products.
 
 **ZeroTier's case:**
-- Battle-tested at scale since 2015.
+- In production since 2015.
 - Layer-2 capability that WireGuard doesn't offer.
 - Custom protocol means custom features (like dynamic flow rules that can rate-limit, tag, redirect on the fly).
-- Open-source server, full control if you want it.
+- Open-source server, available for self-hosting.
 
-Both work. WireGuard is the safer default for "just a mesh"; ZeroTier wins when you specifically need Layer-2 or the flow-rules language.
+Both work. WireGuard is the modern default for mesh networking; ZeroTier is the right tool when you specifically need Layer-2 bridging or the flow-rules language.
 
 ## Pricing comparison
 
@@ -120,10 +120,10 @@ If you're switching from ZeroTier to HostAnywhere:
 
 ## Honest summary
 
-ZeroTier is a mature, capable mesh networking product with unique strengths (Layer-2, self-hosted controller, flow rules). If you specifically need those, it's a good fit.
+ZeroTier is a long-running mesh networking product with capabilities HostAnywhere doesn't currently match (Layer-2 bridging, self-hosted controller, flow-rules DSL). If you specifically need those, it's the right tool for that job.
 
 HostAnywhere builds on WireGuard for the mesh layer and adds public URLs, posture, gateways, and backups in the same product. For users who don't need Layer-2 and would prefer one tool for "secure access to everything," HostAnywhere is built for that combination.
 
 ---
 
-*Spot an inaccuracy? [Open an issue](https://github.com/hostanywhere/compare/issues) and we'll fix it.*
+*Spot an inaccuracy? [Open an issue](https://github.com/hostanywhere/hostanywhere/issues) and we'll fix it.*

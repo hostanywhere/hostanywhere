@@ -8,12 +8,12 @@ Both [HostAnywhere](https://hostanywhere.io) and [Tailscale](https://tailscale.c
 
 | You want… | Pick |
 |---|---|
-| A polished, mature WireGuard mesh with MagicDNS, SSH integration, and a massive ecosystem | **Tailscale** |
+| A WireGuard mesh with built-in MagicDNS, Tailscale SSH, and a larger third-party integration ecosystem | **Tailscale** |
 | A mesh **plus** public service URLs in the same product | **HostAnywhere** |
 | A mesh **plus** end-to-end-encrypted phone backups to your own server | **HostAnywhere** |
 | A mesh **plus** built-in CrowdStrike Falcon / Microsoft Intune posture gating on a self-serve plan | **HostAnywhere** |
 | To pay for one tool instead of three | **HostAnywhere** |
-| The most-adopted mesh tool with the deepest community | **Tailscale** |
+| More years of production deployment and a larger user community | **Tailscale** |
 
 ## Shared core
 
@@ -64,7 +64,7 @@ We're being honest here.
 - **Tailscale Funnel** — public exposure of mesh services on `.ts.net` URLs. HostAnywhere has [public service URLs](https://hostanywhere.io/docs#expose-service) but on `*.hostanywhere.io` (a different model).
 - **Ecosystem maturity** — Tailscale has thousands of community blog posts, integrations with NixOS, Kubernetes operators, Headscale (open-source server), and a much deeper documentation library.
 - **ACL DSL** — Tailscale's ACLs are a JSON5-based policy file with version control workflows. HostAnywhere's access control is a UI-driven rule list (with planned API/IaC support).
-- **Adoption** — Tailscale has substantially more users, more case studies, and more independent reviews. If "battle-tested at scale by many companies" matters, Tailscale wins this.
+- **Adoption** — Tailscale has been on the market longer, has more published case studies, and more third-party reviews. If track record across many production deployments is a hard requirement for your evaluation, Tailscale has more to show today.
 
 ## What HostAnywhere does that Tailscale doesn't
 
@@ -95,9 +95,9 @@ The pricing models are very different — Tailscale charges per user/seat, HostA
 ## When to pick which
 
 ### Pick Tailscale if:
-- You want the most mature, most-deployed mesh networking product.
+- You want the product with the longer track record and larger installed base.
 - You need MagicDNS, Tailscale SSH, or Taildrop specifically.
-- You want a deep open-source community (Headscale as a self-hosted control plane).
+- You want a self-hostable open-source control plane (Headscale).
 - You're already paying $18+/user/mo and posture/device-management features pay for themselves.
 - You want JSON-as-code ACLs with PR review workflows.
 
@@ -123,8 +123,8 @@ The mesh IP ranges are different (Tailscale uses `100.64.0.0/10` from CGNAT; Hos
 
 ## Honest summary
 
-If you only need a mesh, Tailscale is the default choice and a great product. If you need a mesh **and** anything else (public URLs, phone backups, posture gating on a small budget), HostAnywhere is built for exactly that combination — and ships them in one product rather than asking you to assemble them yourself.
+If you only need a mesh and want the longer track record, Tailscale is the established choice. If you need a mesh **and** anything else (public URLs, phone backups, posture gating on a smaller budget), HostAnywhere is built for exactly that combination — and ships them in one product rather than asking you to assemble them yourself.
 
 ---
 
-*Spot an inaccuracy? [Open an issue](https://github.com/hostanywhere/compare/issues) and we'll fix it.*
+*Spot an inaccuracy? [Open an issue](https://github.com/hostanywhere/hostanywhere/issues) and we'll fix it.*

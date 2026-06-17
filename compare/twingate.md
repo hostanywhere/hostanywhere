@@ -54,7 +54,7 @@ This is the biggest design difference between the two products.
 - Resources live behind a Connector inside your network.
 - User devices reach resources by going through the Connector.
 - Devices don't talk to each other directly.
-- Excellent for "users need access to corporate resources" — the classic VPN replacement.
+- Designed for the "users need access to corporate resources" pattern — a VPN replacement shape.
 
 **HostAnywhere (mesh + tunneling)**:
 - Every device on your account is a peer in a private network.
@@ -108,12 +108,12 @@ If you decide to switch:
 
 ## Honest summary
 
-Twingate is a strong, established ZTNA product with deep certification credentials and a sales-led motion. If those are decisive for your buying process, it's a serious option.
+Twingate is an established ZTNA product with extensive third-party security certifications and a sales-led buying motion. If those are decisive for your evaluation, it fits that profile.
 
 HostAnywhere covers the same secure-access need at any team size and bundles in capabilities (public URLs, phone backups, mesh) that Twingate doesn't ship. It also reaches audiences Twingate doesn't target — individuals, families, and homelab owners — which means the same tool your IT team uses at work can be the tool your engineers use at home.
 
-If you're evaluating both, the deciding factor is usually shape rather than size: do you want a "users reach corporate resources" tool (Twingate's strength), or a "everything I care about, securely connected" tool (HostAnywhere's shape)?
+If you're evaluating both, the deciding factor is usually shape rather than size: do you want a "users reach corporate resources" model (the shape Twingate is built around), or a "everything I care about, securely connected" model (HostAnywhere's shape)?
 
 ---
 
-*Spot an inaccuracy? [Open an issue](https://github.com/hostanywhere/compare/issues) and we'll fix it.*
+*Spot an inaccuracy? [Open an issue](https://github.com/hostanywhere/hostanywhere/issues) and we'll fix it.*

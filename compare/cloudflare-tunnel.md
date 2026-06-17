@@ -66,7 +66,7 @@ Many users will end up using both: Cloudflare for high-traffic public production
 | **Team / Business** | $7/user/mo (with Cloudflare One features) | $25/mo flat (100 public services + SSO) |
 | **Enterprise** | Custom | Custom |
 
-For pure "publish my service publicly," Cloudflare's Free tier is hard to beat — 50 users free. For "publish my service **and** mesh **and** posture **and** backups," HostAnywhere's $9/mo flat plan is typically cheaper.
+For pure "publish my service publicly," Cloudflare's Free tier supports 50 users — more than HostAnywhere's Free tier of 3 members. For "publish my service **and** mesh **and** posture **and** backups," HostAnywhere's $9/mo flat plan is typically cheaper.
 
 > Check current pricing on [cloudflare.com/zero-trust](https://www.cloudflare.com/products/zero-trust/) and [hostanywhere.io/pricing](https://hostanywhere.io/pricing).
 
@@ -107,10 +107,10 @@ If you want to replace Cloudflare Tunnel entirely:
 
 ## Honest summary
 
-Cloudflare Tunnel is excellent at what it does — publishing services to the internet behind Cloudflare's edge. If that's your only need and you don't mind being on Cloudflare's stack, it's hard to beat their free tier.
+Cloudflare Tunnel publishes services to the internet behind Cloudflare's edge. If that's your only need and you're comfortable with Cloudflare's stack, their free tier is more generous than HostAnywhere's for that single use case.
 
 HostAnywhere does that plus everything else you'd typically stitch together for secure access — mesh, access control, posture, gateways, backups — in one product. For users who need more than just tunneling, that integration is the value.
 
 ---
 
-*Spot an inaccuracy? [Open an issue](https://github.com/hostanywhere/compare/issues) and we'll fix it.*
+*Spot an inaccuracy? [Open an issue](https://github.com/hostanywhere/hostanywhere/issues) and we'll fix it.*
