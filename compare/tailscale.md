@@ -8,12 +8,12 @@ Both [HostAnywhere](https://hostanywhere.io) and [Tailscale](https://tailscale.c
 
 | You want… | Pick |
 |---|---|
-| A WireGuard mesh with built-in MagicDNS, Tailscale SSH, and a larger third-party integration ecosystem | **Tailscale** |
+| A self-hosted control plane via Headscale (open source) | **Tailscale** |
+| A larger third-party integration ecosystem (NixOS modules, Kubernetes operators, Terraform providers) | **Tailscale** |
 | A mesh **plus** public service URLs in the same product | **HostAnywhere** |
 | A mesh **plus** end-to-end-encrypted phone backups to your own server | **HostAnywhere** |
 | A mesh **plus** built-in CrowdStrike Falcon / Microsoft Intune posture gating on a self-serve plan | **HostAnywhere** |
 | To pay for one tool instead of three | **HostAnywhere** |
-| More years of production deployment and a larger user community | **Tailscale** |
 
 ## Shared core
 
@@ -56,19 +56,26 @@ Tailscale's per-peer choice is more flexible; HostAnywhere's 3-slot priority is 
 
 ## What Tailscale does that HostAnywhere doesn't (yet)
 
-We're being honest here.
+Honest list. We've separated the structural moats (things that took years to build) from convenience features that any mesh agent could add given engineering time.
 
-- **MagicDNS** — Tailscale gives each device a short `.ts.net` hostname that auto-resolves on the mesh. HostAnywhere uses mesh IPs for now.
-- **Tailscale SSH** — built-in SSH that uses tailnet identity instead of keys. HostAnywhere doesn't have a comparable feature.
-- **Taildrop** — built-in file send between mesh devices. HostAnywhere has phone-to-storage-server uploads but not arbitrary device-to-device file send.
-- **Tailscale Funnel** — public exposure of mesh services on `.ts.net` URLs. HostAnywhere has [public service URLs](https://hostanywhere.io/docs#expose-service) but on `*.hostanywhere.io` (a different model).
-- **Ecosystem maturity** — Tailscale has thousands of community blog posts, integrations with NixOS, Kubernetes operators, Headscale (open-source server), and a much deeper documentation library.
+### Structural differences
+
+- **Headscale (open-source self-hosted control plane)** — Run Tailscale's entire coordination layer on your own hardware with no vendor dependency. This took years to build and has a dedicated community. HostAnywhere's control plane is hosted.
+- **Third-party integration ecosystem** — NixOS modules, Kubernetes operators, Terraform providers, container sidecars, and dozens of community-built tools. Years of accumulated integrations that HostAnywhere doesn't have yet.
+- **Years of production deployment** — More published case studies, more third-party reviews, more time-on-market signal. If track record across many production deployments is a hard requirement for your evaluation, Tailscale has more to show today.
 - **ACL DSL** — Tailscale's ACLs are a JSON5-based policy file with version control workflows. HostAnywhere's access control is a UI-driven rule list (with planned API/IaC support).
-- **Adoption** — Tailscale has been on the market longer, has more published case studies, and more third-party reviews. If track record across many production deployments is a hard requirement for your evaluation, Tailscale has more to show today.
+
+### Convenience features Tailscale ships today
+
+These are useful UX layers on top of the mesh. Not architectural moats — equivalents can be added to any mesh product — but Tailscale ships them today and HostAnywhere doesn't.
+
+- **MagicDNS** — Each device gets a short `.ts.net` hostname that auto-resolves on the mesh. HostAnywhere uses mesh IPs today; named lookups are on the roadmap.
+- **Tailscale SSH** — Built-in SSH that uses tailnet identity instead of keys. HostAnywhere doesn't have a comparable feature today.
+- **Taildrop** — Built-in file send between mesh devices. HostAnywhere has phone-to-Storage-Server uploads but not arbitrary device-to-device file send today.
 
 ## What HostAnywhere does that Tailscale doesn't
 
-- **Public service URLs as a first-class feature** — Expose any local port at `https://yourapp.hostanywhere.io` with a single click. Valid TLS included. No port forwarding. Tailscale Funnel exists but is in beta, has tighter limits, and is bolted onto the mesh model rather than being a primary product surface.
+- **Public service URLs as a first-class feature** — Expose any local port at `https://yourapp.hostanywhere.io` with a single click. Valid TLS included. No port forwarding. Tailscale Funnel offers a similar capability (services exposed on `.ts.net`), so this is closer to feature parity than a HostAnywhere-only advantage — but Funnel is positioned as a secondary surface on top of the mesh, where HostAnywhere treats public service URLs as a primary product surface alongside the mesh.
 - **End-to-end encrypted phone backups** — iOS and Android apps back up Photos, Videos, Contacts, Calendars, and Health (iOS) data to a **Storage Server** you run on your own Mac, Linux, or Windows machine. Convergent AES-256-GCM with keys derived on the device. Tailscale doesn't offer this category at all.
 - **Storage Server with multi-server replication** — Run storage servers on multiple devices; they auto-replicate via the mesh. Tailscale has no equivalent.
 - **Built-in CrowdStrike Falcon integration** — Posture-gated access using Falcon ZTA scores, available on the Developer plan ($9/mo). Tailscale Device Posture is a Premium-tier feature ($18+/user/mo) and surfaces a smaller set of signals.
@@ -95,11 +102,11 @@ The pricing models are very different — Tailscale charges per user/seat, HostA
 ## When to pick which
 
 ### Pick Tailscale if:
+- You want a self-hostable open-source control plane (Headscale) with no vendor dependency.
+- You depend on Tailscale's third-party integration ecosystem — NixOS modules, Kubernetes operators, Terraform providers, or any of the dozens of community-built tools.
+- You want JSON-as-code ACLs with version control and PR review workflows.
 - You want the product with the longer track record and larger installed base.
-- You need MagicDNS, Tailscale SSH, or Taildrop specifically.
-- You want a self-hostable open-source control plane (Headscale).
-- You're already paying $18+/user/mo and posture/device-management features pay for themselves.
-- You want JSON-as-code ACLs with PR review workflows.
+- Your workflow today specifically depends on MagicDNS / Tailscale SSH / Taildrop and you don't want to wait for equivalents elsewhere.
 
 ### Pick HostAnywhere if:
 - You want mesh **and** public service URLs in one product.
